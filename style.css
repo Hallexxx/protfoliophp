@@ -108,6 +108,55 @@ cursor: default;
   transform-origin: bottom left;
 }
 
+.image-container {
+  position: relative;
+  display: inline-block;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rounded-image {
+  border-radius: 50%;
+  margin: auto;
+  height: 400px;
+  width: 400px;
+  cursor: pointer;
+}
+
+.overlay-text {
+  position: absolute;
+  transform: translateY(100%);
+  bottom: 0;
+  background-color: rgb(84, 75, 75);
+  color: white;
+  overflow: hidden;
+  border-radius: 10px;
+  max-height: 0;
+  transition: max-height 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  margin: auto; 
+  text-align: center;
+}
+
+.overlay-text p {
+  padding: 10px;
+  margin: 0;
+}
+
+.image-container:hover .overlay-text,
+.image-container:focus .overlay-text {
+  max-height: 1000px;
+}
+
+h1{
+  color: white;
+  width: 50%;
+  font-size: 1.5em;
+  font-family: 'Raleway', sans-serif;
+}
+
+
 section {
     max-width: 800px;
     margin: 20px auto;
