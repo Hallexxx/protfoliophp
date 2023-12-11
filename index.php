@@ -13,7 +13,7 @@ include('includes/header.php');
         <section id="home">
             <div class="container scroll-animation">
                 <div class="image-container">
-                    <img src="img/perez.jpg" alt="Image" class="rounded-image">
+                    <img src="images/perez.jpg" alt="Image" class="rounded-image">
                     <div class="overlay-text">
                         <p>Nom : Perez <br></p>
                         <p>Prénom : Alexandre <br></p>
@@ -145,7 +145,7 @@ include('includes/header.php');
                 <div class="about-containers">
                     <div class="details-container color-container">
                         <div class="article-container">
-                            <img src="img/r6_pack.png" alt="Project 3" class="project-img"/>
+                            <img src="images/r6_pack.png" alt="Project 3" class="project-img"/>
                         </div>
                         <h2 class="experience-sub-title project-title">Site R6 Packs</h2>
                         <div class="btn-container">
@@ -154,7 +154,7 @@ include('includes/header.php');
                     </div>
                     <div class="details-container color-container1">
                         <div class="article-container">
-                            <img src="img/jeux.png" alt="Project 3" class="project-img"/>
+                            <img src="images/jeux.png" alt="Project 3" class="project-img"/>
                         </div>
                         <h2 class="experience-sub-title project-title">Portfolio PHP</h2>
                         <div class="btn-container">
@@ -163,7 +163,7 @@ include('includes/header.php');
                     </div>
                     <div class="details-container color-container">
                         <div class="article-container">
-                            <img src="img/2d.png" alt="Project 3" class="project-img"/>
+                            <img src="images/2d.png" alt="Project 3" class="project-img"/>
                         </div>
                         <h2 class="experience-sub-title project-title">Site Planning</h2>
                         <div class="btn-container">
@@ -179,9 +179,9 @@ include('includes/header.php');
             <div class="experience-details-container">
                 <div class="about-containers"></div>
                     <i class="slider">
-                        <input checked type="radio" name="s" style="background-image: url('img/Atouts.png');" title="Stage 2 mois Atout France">
-                        <input type="radio" name="s" style="background-image: url('img/unity.png');" title="Experience Unity">
-                        <input type="radio" name="s" style="background-image: url('img/hotels.png');" title="Stage 2 mois service informatique Mairie">
+                        <input checked type="radio" name="s" style="background-image: url('images/Atouts.png');" title="Stage 2 mois Atout France">
+                        <input type="radio" name="s" style="background-image: url('images/unity.png');" title="Experience Unity">
+                        <input type="radio" name="s" style="background-image: url('images/hotels.png');" title="Stage 2 mois service informatique Mairie">
                     </i>
                 </div>
             </div>
