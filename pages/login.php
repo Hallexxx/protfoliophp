@@ -1,7 +1,7 @@
 <?php
-include('includes/header.php');
-include('Database.php');
-include('User.php');
+include('includes/headerlogin.php');
+include('includes/database.php');
+include('includes/user.php');
 
 $database = new Database();
 $db = $database->getConnection();
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="shape"></div>
             <div class="shape"></div>
         </div>
-        <form>
+        <form class="login">
             <h3>Login Here</h3>
 
             <label for="username">Username</label>
@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="password" placeholder="Password" id="password">
 
             <button>Log In</button>
-            <div class="social">
+            <div class="login_social">
             <div class="go"><i class="fab fa-google"></i>  Google</div>
             <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
             </div>
