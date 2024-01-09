@@ -31,11 +31,11 @@
                         <li><a href="#"><span class="hover-underline-animation">Planning</span></a></li>
                     </ul>
                 </li>
-                <li class="menu-deroulant"><a href="#">Mes réseaux</a>
+                <li class="menu-deroulant"><a href="#">Mon blog</a>
                     <ul class="sous">
-                        <li><a href="https://www.linkedin.com/in/alexandre-perez-b3309b267/"><span class="hover-underline-animation">LinkedIn</span></a></li>
-                        <li><a href="https://profile.indeed.com/?hl=fr_FR&co=FR&from=gnav-jobseeker-profile--profile-one-frontend"><span class="hover-underline-animation">Indeed</span></a></li>
-                        <li><a href="https://github.com/Hallexxx"><span class="hover-underline-animation">GitHub</span></a></li>
+                        <li><a href="/contact"><span class="hover-underline-animation">contact</span></a></li>
+                        <li><a href="/blog"><span class="hover-underline-animation">blog</span></a></li>
+                        <li><a href="/"><span class="hover-underline-animation">log in</span></a></li>
                     </ul>
                 </li>
                 <svg display="none">

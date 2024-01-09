@@ -2,7 +2,7 @@
 *:before,
 *:after{
     padding: 0;
-    margin: 0;
+    margin: 0; 
     box-sizing: border-box;
 }
 
@@ -53,7 +53,7 @@
 }
 .login *{
     font-family: 'Poppins',sans-serif;
-    color: #ffffff;
+    color: black;
     letter-spacing: 0.5px;
     outline: none;
     border: none;
@@ -88,7 +88,7 @@
 .login button{
     margin-top: 50px;
     width: 100%;
-    background-color: #ffffff;
+    background-color: #c9c9c9;
     color: #080710;
     padding: 15px 0;
     font-size: 18px;
@@ -99,6 +99,8 @@
 .login_social{
   margin-top: 30px;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .login_social div{
   background: red;

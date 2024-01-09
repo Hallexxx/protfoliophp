@@ -19,8 +19,8 @@
         case '/contact':
             require 'pages/contact.php';
             break;
-        case '/login':
-            require 'pages/login.php';
+        case '/blog':
+            require 'pages/blog.php';
             break;
         default:
             require 'pages/404.php';
