@@ -1,7 +1,4 @@
 <?php
-include('includes/headerlogin.php');
-include('includes/database.php');
-include('includes/user.php');
 
 $database = new Database();
 $db = $database->getConnection();

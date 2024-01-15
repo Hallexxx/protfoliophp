@@ -1,5 +1,7 @@
 <?php
-    // index.php
+    include('includes/header.php');
+    include('includes/database.php');
+    include('includes/user.php');
 
     error_reporting(E_ALL);
     ini_set('display_errors', 1);

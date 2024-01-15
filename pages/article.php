@@ -1,6 +1,3 @@
-<?php
-include('includes/header.php');
-?>
 
 <section id="article">
     <?php
@@ -14,7 +11,3 @@ include('includes/header.php');
     <p><?php echo $articleContent; ?></p>
     <p>Date de publication : <?php echo $articleDate; ?></p>
 </section>
-
-<?php
-include('includes/footer.php');
-?>

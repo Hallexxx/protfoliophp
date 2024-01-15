@@ -1,6 +1,3 @@
-<?php
-include('includes/header.php');
-?>
 
 <section id="blog">
     <h2>Mon Blog</h2>
@@ -12,9 +9,5 @@ include('includes/header.php');
         <a href="article.php?id=1">Lire la suite</a>
     </div>
 
-    <!-- Ajoutez d'autres articles de blog ici -->
 </section>
 
-<?php
-include('includes/footer.php');
-?>

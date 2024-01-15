@@ -1,6 +1,3 @@
-<?php
-include('includes/header.php');
-?>
 
 <section id="contact">
   
@@ -60,6 +57,3 @@ include('includes/header.php');
     </div> 
 </section>  
 
-<?php
-include('includes/footer.php');
-?>
