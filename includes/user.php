@@ -15,7 +15,12 @@ class User {
 
         $stmt->execute();
 
-        return $stmt->rowCount();
+        if ($stmt->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
+
 ?>

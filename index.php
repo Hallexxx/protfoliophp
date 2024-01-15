@@ -10,10 +10,10 @@
 
     switch ($uri) {
         case '/':
-            require 'pages/login.php';
-            break;
-        case '/portfolio':
             require 'pages/portfolio.php';
+            break;
+        case '/login':
+            require 'pages/login.php';
             break;
         case '/about':
             require 'pages/about.php';

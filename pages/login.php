@@ -4,13 +4,17 @@ $database = new Database();
 $db = $database->getConnection();
 $user = new User($database);
 
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    if ($user->login($username, $password) > 0) {
-        header("Location: /portfolio");
+    $user = new User(new Database());
 
+    if ($user->login($username, $password)) {
+        $_SESSION['admin'] = true; // Set session variable to indicate admin login
+        header("Location: /portfolio");
         exit();
     } else {
         echo "Login failed!";
@@ -33,9 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="password" placeholder="Password" id="password" name="password">
 
             <button type="submit">Log In</button>
-            <div class="login_social">
-                <div class="go"><i class="fab fa-google"></i>  Google</div>
-            </div>
         </form>
     </body>
 </html>

@@ -37,7 +37,7 @@
                     <ul class="sous">
                         <li><a href="/contact"><span class="hover-underline-animation">contact</span></a></li>
                         <li><a href="/blog"><span class="hover-underline-animation">blog</span></a></li>
-                        <li><a href="/"><span class="hover-underline-animation">log in</span></a></li>
+                        <li><a href="/login"><span class="hover-underline-animation">log in</span></a></li>
                     </ul>
                 </li>
                 <svg display="none">

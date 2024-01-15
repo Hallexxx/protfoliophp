@@ -31,8 +31,8 @@
     
     <div class="direct-contact-container">
         <ul class="contact-list">
-            <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text place">City, State</span></i></li>
-            <li class="list-item"><i class="fa fa-phone fa-2x"><span class="contact-text phone"><a href="tel:1-212-555-5555" title="Give me a call">(212) 555-2368</a></span></i></li>
+            <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text place">Valbonne France</span></i></li>
+            <li class="list-item"><i class="fa fa-phone fa-2x"><span class="contact-text phone"><a href="tel:1-212-555-5555" title="Give me a call">(33) 06 89 54 71 28</a></span></i></li>
             <li class="list-item"><i class="fa fa-envelope fa-2x"><span class="contact-text gmail"><a href="mailto:#" title="Send me an email">hitmeup@gmail.com</a></span></i></li>
         </ul>
 
@@ -52,7 +52,7 @@
             </li>       
         </ul>
         <hr>
-        <div class="copyright">&copy; ALL OF THE RIGHTS RESERVED</div>
+        <div class="copyright">&copy;RIGHTS RESERVED ALEXANDRE PEREZ</div>
         </div>
     </div> 
 </section>  
