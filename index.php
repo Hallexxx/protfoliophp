@@ -2,6 +2,7 @@
     include('includes/header.php');
     include('includes/database.php');
     include('includes/user.php');
+    include('includes/traitement_contact.php');
 
     error_reporting(E_ALL);
     ini_set('display_errors', 1);

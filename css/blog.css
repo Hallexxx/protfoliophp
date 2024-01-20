@@ -1,0 +1,40 @@
+#blog{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blog-post{
+    background-color: beige;
+    border-radius: 10%;
+    padding: 10px;
+}
+
+h1{
+    text-align: center;
+    top: 0;
+}
+
+.navleft{
+    float: left;
+    background-color: black;
+    height: 100vh;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.navleft ul li{
+    list-style: none;
+    padding: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;  
+   z-index: 1;
+   cursor: pointer;
+}
+
+.navleft ul li a{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}

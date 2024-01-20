@@ -1,59 +1,52 @@
-
-<section id="contact">
-  
-    <h1 class="section-header">Contact</h1>
-    
-    <div class="contact-wrapper">
-
-    <form id="contact-form" class="form-horizontal" role="form">
-       
-        <div class="form-group">
-            <div class="col-sm-12">
-                <input type="text" class="form-control" id="name" placeholder="NAME" name="name" value="" required>
-            </div>
+<?php
+    // include_once '../includes/db_connect.php';
+    // include_once '../includes/functions.php';
+?>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/contact.css">
+        <link rel="stylesheet" href="/css/portfolio.css">
+        <script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <script src="/animation.js"></script>
+    </head>
+    <div class="container_contact">
+        <div class="row">
+            <h1>contact us</h1>
         </div>
-
-        <div class="form-group">
-            <div class="col-sm-12">
-                <input type="email" class="form-control" id="email" placeholder="EMAIL" name="email" value="" required>
-            </div>
+        <div class="row input-container">
+            <form action="handle_contact_form.php" method="post">
+                <div class="col-xs-12">
+                    <div class="styled-input wide">
+                        <input type="text" name="name" required />
+                        <label>Name</label>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="styled-input">
+                        <input type="text" name="email" required />
+                        <label>Email</label>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="styled-input" style="float:right;">
+                        <input type="text" name="phone" required />
+                        <label>Phone Number</label>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="styled-input wide">
+                        <textarea name="message" required></textarea>
+                        <label>Message</label>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <button type="submit" class="btn-lrg submit-btn">Send Message</button>
+                </div>
+            </form>
         </div>
-
-        <textarea class="form-control" rows="10" placeholder="MESSAGE" name="message" required></textarea>
-      
-        <button class="btn btn-primary send-button" id="submit" type="submit" value="SEND">
-            <div class="alt-send-button">
-                <i class="fa fa-paper-plane"></i><span class="send-text">SEND</span>
-            </div>
-        </button>
-      
-    </form>
-    
-    <div class="direct-contact-container">
-        <ul class="contact-list">
-            <li class="list-item"><i class="fa fa-map-marker fa-2x"><span class="contact-text place">Valbonne France</span></i></li>
-            <li class="list-item"><i class="fa fa-phone fa-2x"><span class="contact-text phone"><a href="tel:1-212-555-5555" title="Give me a call">(33) 06 89 54 71 28</a></span></i></li>
-            <li class="list-item"><i class="fa fa-envelope fa-2x"><span class="contact-text gmail"><a href="mailto:#" title="Send me an email">hitmeup@gmail.com</a></span></i></li>
-        </ul>
-
-        <hr>
-        <ul class="social-media-list">
-            <li><a href="#" target="_blank" class="contact-icon">
-                <i class="fa fa-github" aria-hidden="true"></i></a>
-            </li>
-            <li><a href="#" target="_blank" class="contact-icon">
-                <i class="fa fa-codepen" aria-hidden="true"></i></a>
-            </li>
-            <li><a href="#" target="_blank" class="contact-icon">
-                <i class="fa fa-twitter" aria-hidden="true"></i></a>
-            </li>
-            <li><a href="#" target="_blank" class="contact-icon">
-                <i class="fa fa-instagram" aria-hidden="true"></i></a>
-            </li>       
-        </ul>
-        <hr>
-        <div class="copyright">&copy;RIGHTS RESERVED ALEXANDRE PEREZ</div>
-        </div>
-    </div> 
-</section>  
-
+    </div>
+</html>
