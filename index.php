@@ -2,7 +2,6 @@
     include('includes/header.php');
     include('includes/database.php');
     include('includes/user.php');
-    include('includes/traitement_contact.php');
 
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
@@ -14,12 +13,14 @@
             require 'pages/portfolio.php';
             break;
         case '/login':
+            include_once('includes/logout.php');
             require 'pages/login.php';
             break;
         case '/about':
             require 'pages/about.php';
             break;
         case '/contact':
+            include_once('includes/traitement_contact.php');
             require 'pages/contact.php';
             break;
         case '/blog':

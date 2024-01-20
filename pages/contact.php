@@ -1,6 +1,7 @@
 <?php
     // include_once '../includes/db_connect.php';
     // include_once '../includes/functions.php';
+    $database = new Database();
 ?>
 <html lang="en">
     <head>
