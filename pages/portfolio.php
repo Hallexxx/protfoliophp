@@ -48,109 +48,87 @@
             </div>
         </section>
 
+        <?php
+            $database = new Database();
+            $pdo = $database->getConnection();
+
+            // Récupérer les compétences depuis la base de données
+            $query = $pdo->query("SELECT * FROM skills");
+            $skills = $query->fetchAll(PDO::FETCH_ASSOC);
+            $query = $pdo->query("SELECT * FROM projets");
+            $projets = $query->fetchAll(PDO::FETCH_ASSOC);
+        ?>
+
         <section id="experience">
             <h1 class="title">Mes Compétences</h1>
             <div class="experience-details-container">
                 <div class="about-containers">
-                <div class="details-container">
-                    <h2 class="experience-sub-title">Frontend Development</h2>
-                    <div class="article-container">
-                        <article>
-                            <img src="images/checkmark.png" alt="Experience icon" class="icon"/>
-                            <div>
-                                <h3>HTML</h3>
-                                <p>Avancée</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="images/checkmark.png" alt="Experience icon" class="icon"/>
-                            <div>
-                                <h3>CSS</h3>
-                                <p>Intermédiaire</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="images/checkmark.png" alt="Experience icon" class="icon"/>
-                            <div>
-                                <h3>Unreal</h3>
-                                <p>Basic</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="images/checkmark.png" alt="Experience icon" class="icon"/>
-                            <div>
-                                <h3>JavaScript</h3>
-                                <p>Intermédiaire</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="images/checkmark.png" alt="Experience icon" class="icon"/>
-                            <div>
-                                <h3>SQL</h3>
-                                <p>Intermédiaire</p>
-                            </div>
-                        </article>
-                        <article>
-                            <img src="images/checkmark.png" alt="Experience icon" class="icon"/>
-                            <div>
-                                <h3>Unity</h3>
-                                <p>Intermédiaire</p>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                    <div class="details-container">
-                        <h2 class="experience-sub-title">Frontend Development</h2>
-                        <div class="article-container">
-                            <article>
-                                <img src="images/checkmark.png" alt="Experience icon" class="icon"/>
-                                <div>
-                                    <h3>PHP</h3>
-                                    <p>Basic</p>
-                                </div>
-                            </article>
-                            <article>
-                                <img src="images/checkmark.png" alt="Experience icon" class="icon"/>
-                                <div>
-                                    <h3>Node JS</h3>
-                                    <p>Intermédiaire</p>
-                                </div>
-                            </article>
-                            <article>
-                                <img src="images/checkmark.png" alt="Experience icon" class="icon"/>
-                                <div>
-                                    <h3>JAVA</h3>
-                                    <p>Basic</p>
-                                </div>
-                            </article>
-                            <article>
-                                <img src="images/checkmark.png" alt="Experience icon" class="icon"/>
-                                <div>
-                                    <h3>Git</h3>
-                                    <p>Intermédiaire</p>
-                                </div>
-                            </article>
-                            <article>
-                                <img src="images/checkmark.png" alt="Experience icon" class="icon"/>
-                                <div>
-                                    <h3>C++</h3>
-                                    <p>Basic</p>
-                                </div>
-                            </article>
-                            <article>
-                                <img src="images/checkmark.png" alt="Experience icon" class="icon"/>
-                                <div>
-                                    <h3>Express JS</h3>
-                                    <p>Intermédiaire</p>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
+                    <?php
+                    $skills_group_1 = array_slice($skills, 0, count($skills) / 2);
+                    $skills_group_2 = array_slice($skills, count($skills) / 2);
+
+                    echo '<div class="details-container">';
+                    echo '<h2 class="experience-sub-title">Frontend Development</h2>';
+                    echo '<div class="article-container">';
+                    foreach ($skills_group_1 as $skill) {
+                        echo '<article>';
+                        echo '<img src="images/checkmark.png" alt="Experience icon" class="icon"/>';
+                        echo '<div>';
+                        echo '<h3>' . $skill['skill_name'] . '</h3>';
+                        echo '<p>Maîtrise ' . $skill['niveau'] . '</p>';
+                        echo '</div>';
+                        echo '</article>';
+                    }
+                    echo '</div>';
+                    echo '</div>';
+
+                    // Afficher le deuxième groupe
+                    echo '<div class="details-container">';
+                    echo '<h2 class="experience-sub-title">Frontend Development</h2>';
+                    echo '<div class="article-container">';
+                    foreach ($skills_group_2 as $skill) {
+                        echo '<article>';
+                        echo '<img src="images/checkmark.png" alt="Experience icon" class="icon"/>';
+                        echo '<div>';
+                        echo '<h3>' . $skill['skill_name'] . '</h3>';
+                        echo '<p>Maîtrise ' . $skill['niveau'] . '</p>';
+                        echo '</div>';
+                        echo '</article>';
+                    }
+                    echo '</div>';
+                    echo '</div>';
+                    ?>
                 </div>
             </div>
         </section>
 
         <section id="projects">
+            <h1 class="title">Mes Projets</h1>
+            <div class="experience-details-container" >
+                <div class="about-containers">
+                    <?php
+                    echo '<div class="project-container">';
+
+                    foreach ($projets as $projet) {
+                        echo '<div class="details-container color-container">';
+                        echo '<div class="article-container">';
+                        echo '<img src="' . $projet['img_projets'] . '" alt="' . $projet['name_projets'] . '" class="project-img"/>';
+                        echo '</div>';
+                        echo '<h2 class="experience-sub-title project-title">' . $projet['name_projets'] . '</h2>';
+                        echo '<div class="btn-container">';
+                        // Modifiez le lien du bouton en fonction de vos besoins
+                        echo '<button class="btn btn-color-2 project-btn" onclick="location.href=\'#\'">Live Demo</button>';
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                    
+                    echo '</div>';
+                    ?>
+                </div>
+            </div>
+        </section>
+
+        <!-- <section id="projects">
             <h1 class="title">Mes Projets</h1>
             <div class="experience-details-container">
                 <div class="about-containers">
@@ -183,7 +161,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <section id="stage">
             <h1 class="title">Mes Experiences</h1>
