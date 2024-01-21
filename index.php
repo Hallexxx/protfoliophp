@@ -1,5 +1,4 @@
 <?php
-    include('includes/header.php');
     include('includes/database.php');
     include('includes/user.php');
 
@@ -10,9 +9,11 @@
 
     switch ($uri) {
         case '/':
+            include_once('includes/header.php');
             require 'pages/portfolio.php';
             break;
         case '/login':
+            include_once('includes/header.php');
             include_once('includes/logout.php');
             require 'pages/login.php';
             break;
@@ -20,6 +21,7 @@
             require 'pages/about.php';
             break;
         case '/contact':
+            include_once('includes/header.php');
             include_once('includes/traitement_contact.php');
             require 'pages/contact.php';
             break;

@@ -1,7 +1,4 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
 
 // Indiquer que l'utilisateur n'est plus en mode admin
 $_SESSION['admin'] = false;
