@@ -73,10 +73,12 @@
 
                 echo '<div class="details-container">';
                 echo '<h2 class="experience-sub-title">Frontend Development</h2>';
+                echo '<img src="plus.png" alt="">';
                 echo '<div class="article-container">';
                 foreach ($skills_group_1 as $skill) {
                     echo '<article>';
                     echo '<img src="images/checkmark.png" alt="Experience icon" class="icon"/>';
+                    echo '<img src="info.png" alt="">';
                     echo '<div>';
                     echo '<h3>' . $skill['skill_name'] . '</h3>';
                     echo '<p>Maîtrise ' . $skill['niveau'] . '</p>';
@@ -111,8 +113,6 @@
         <div class="experience-details-container" >
             <div class="about-containers">
                 <?php
-                echo '<div class="project-container">';
-
                 foreach ($projets as $projet) {
                     echo '<div class="details-container color-container">';
                     echo '<div class="article-container">';
@@ -124,8 +124,6 @@
                     echo '</div>';
                     echo '</div>';
                 }
-                
-                echo '</div>';
                 ?>
             </div>
         </div>
