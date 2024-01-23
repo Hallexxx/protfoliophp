@@ -1,5 +1,10 @@
 <?php
 
+// Utilisation :
+$database = new Database(); 
+$categoriesHandler = new Categories($database->getConnection());
+$categories = $categoriesHandler->getCategories();
+
 class Categories {
     private $pdo;
 
@@ -21,11 +26,6 @@ class Categories {
     }
 }
 
-// Utilisation :
-$database = new Database(); // Assurez-vous d'avoir la classe Database pour établir la connexion PDO
-$categoriesHandler = new Categories($database->getConnection());
-$categories = $categoriesHandler->getCategories();
 
-// Retourne les catégories au format JSON
 echo json_encode($categories);
 ?>

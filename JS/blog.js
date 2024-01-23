@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (selectContainer) {
                 selectContainer.style.display = "block";
 
-                fetch("categories.php")
+                fetch("Categories.php")
                     .then(response => response.json())
                     .then(data => {
                         var select = document.getElementById("categorySelect");
@@ -34,7 +34,7 @@ function filterPosts() {
     var selectedCategory = document.getElementById("categorySelect").value;
 
     // Effectuer une requête AJAX pour récupérer les articles filtrés
-    fetch("filter_posts.php?category=" + encodeURIComponent(selectedCategory))
+    fetch("FilterPosts.php?category=" + encodeURIComponent(selectedCategory))
         .then(response => response.json())
         .then(data => {
             var blogPostsContainer = document.getElementById("blog");

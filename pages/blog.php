@@ -35,7 +35,6 @@
         <form id="selectContainer" style="display: none;">
             <div id="select-box">
                 <select id="categorySelect">
-                    <!-- Options seront ajoutées dynamiquement via JavaScript -->
                 </select>
                 <button type="button" onclick="filterPosts()">Filtrer</button>
             </div>
@@ -49,7 +48,6 @@
     ?>
       
     <div class="container">
-         
         <?php
             if ($result->rowCount() > 0) {
                 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {

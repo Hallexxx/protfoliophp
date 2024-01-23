@@ -1,5 +1,12 @@
 <?php
 
+// Utilisation :
+$database = new Database(); // Assurez-vous d'avoir la classe Database pour établir la connexion PDO
+$filterPostsHandler = new FilterPosts($database->getConnection());
+
+// Récupère la catégorie passée en paramètre (via GET par exemple)
+$category = $_GET['category'] ?? '';
+
 class FilterPosts {
     private $pdo;
 
@@ -19,12 +26,6 @@ class FilterPosts {
     }
 }
 
-// Utilisation :
-$database = new Database(); // Assurez-vous d'avoir la classe Database pour établir la connexion PDO
-$filterPostsHandler = new FilterPosts($database->getConnection());
-
-// Récupère la catégorie passée en paramètre (via GET par exemple)
-$category = $_GET['category'] ?? '';
 
 // Retourne les articles filtrés au format JSON
 echo json_encode($filterPostsHandler->getFilteredPosts($category));

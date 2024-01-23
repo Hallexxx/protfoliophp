@@ -11,6 +11,7 @@
     switch ($uriParts[1]) {
         case '':
             include_once('includes/header.php');
+            include_once('includes/ajout_competence.php');
             require 'pages/portfolio.php';
             break;
         case 'login':
@@ -31,13 +32,11 @@
             require 'pages/blog.php';
             break;
         case 'article':
-            // Vérifier si l'ID de l'article est présent dans l'URL
             if (isset($uriParts[2])) {
-                // Charger la page article.php
                 include_once('pages/article.php');
             } else {
                 // L'ID de l'article n'est pas présent, renvoyer vers la page d'accueil ou afficher une erreur
-                include_once('pages/404.php');
+                include_once('pages/403.php');
             }
             break;
         default:

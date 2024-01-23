@@ -1,10 +1,10 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-    if (!isset($_SESSION['admin'])) {
-        $_SESSION['admin'] = false;
-    }    
-}
+// if (session_status() == PHP_SESSION_NONE) {
+//     session_start();
+//     if (!isset($_SESSION['admin'])) {
+//         $_SESSION['admin'] = false;
+//     }    
+// }
 ?>
 <html lang="en">
     <body>
@@ -23,7 +23,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 <?php if(isset($_SESSION['admin'])): ?>
                     <button onclick="deconnecter()">Déconnecter</button>
                 <?php else: ?>
-                    <button onclick="redirigerVersLogin()">Se connecter</button>
+                    <button><a href="/login">Se connecter</a></button>
                 <?php endif; ?>
 
                 <svg display="none">

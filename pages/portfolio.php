@@ -12,13 +12,14 @@
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
         <script src="/JS/animation.js"></script>
+        <script src="/JS/log.js"></script>
+        <script src="/JS/popup.js"></script>
     </head>
 
     <?php
         $database = new Database();
         $pdo = $database->getConnection();
 
-        // Récupérer les compétences depuis la base de données
         $query = $pdo->query("SELECT * FROM skills");
         $skills = $query->fetchAll(PDO::FETCH_ASSOC);
         $query = $pdo->query("SELECT * FROM projets");
@@ -72,15 +73,20 @@
                 $skills_group_2 = array_slice($skills, count($skills) / 2);
 
                 echo '<div class="details-container">';
-                echo '<h2 class="experience-sub-title">Frontend Development</h2>';
+                // if(isset($_SESSION['admin'])):
+                    echo '<img class="info_img" src="/images/info.png" alt="" onclick="showPopup()">';
+                // endif;
+                echo '<h2 class="experience-sub-title">Frontend Development</h2> ';
                 echo '<img src="plus.png" alt="">';
                 echo '<div class="article-container">';
                 foreach ($skills_group_1 as $skill) {
                     echo '<article>';
                     echo '<img src="images/checkmark.png" alt="Experience icon" class="icon"/>';
-                    echo '<img src="info.png" alt="">';
                     echo '<div>';
-                    echo '<h3>' . $skill['skill_name'] . '</h3>';
+                    // if(isset($_SESSION['admin'])):
+                        echo '<img src="/images/info.png" alt="Experience icon" class="icon" style="display: none;"/>';
+                    // endif;
+                    echo '<h3 class="skill-name">' . $skill['skill_name'] . '</h3>';
                     echo '<p>Maîtrise ' . $skill['niveau'] . '</p>';
                     echo '</div>';
                     echo '</article>';
@@ -88,15 +94,20 @@
                 echo '</div>';
                 echo '</div>';
 
-                // Afficher le deuxième groupe
                 echo '<div class="details-container">';
+                // if(isset($_SESSION['admin'])):
+                    echo '<img class="info_img" src="/images/info.png" alt="" onclick="showPopup()">';
+                // endif;
                 echo '<h2 class="experience-sub-title">Frontend Development</h2>';
                 echo '<div class="article-container">';
                 foreach ($skills_group_2 as $skill) {
                     echo '<article>';
                     echo '<img src="images/checkmark.png" alt="Experience icon" class="icon"/>';
                     echo '<div>';
-                    echo '<h3>' . $skill['skill_name'] . '</h3>';
+                    // if(isset($_SESSION['admin'])):
+                        echo '<img src="/images/info.png" alt="Experience icon" class="icon" onclick="showPopup2()" style="display: none;"/>';
+                    // endif;
+                    echo '<h3 class="skill-name">' . $skill['skill_name'] . '</h3>';
                     echo '<p>Maîtrise ' . $skill['niveau'] . '</p>';
                     echo '</div>';
                     echo '</article>';
@@ -107,6 +118,38 @@
             </div>
         </div>
     </section>
+
+    <div id="popup" style="display: none;">
+        <form class="add_comp" method="post" action="ajout_competence.php">
+            <h3 id="popupTitle">Ajouter une compétence</h3>
+
+            <label for="name">Nom</label>
+            <input type="text" placeholder="Name" id="name" name="name">
+
+            <label for="level">Niveau</label>
+            <input type="text" placeholder="Niveau" id="level" name="level">
+
+            <button type="button" onclick="addCompetence(event)">Ajouter la compétence</button>
+            <button type="button" onclick="hidePopup()">Annuler</button>
+        </form>
+    </div>
+
+    <div id="popup2" style="display: none;">
+        <form class="modif_comp" method="post" action="">
+            <h3>Modifier la competence</h3>
+
+            <label for="name">Nom</label>
+            <input type="text" placeholder="Name" id="name" name="name">
+
+            <label for="level">Niveau</label>
+            <input type="text" placeholder="Niveau" id="level" name="level">
+
+            <button type="submit">Modifier la competences</button>
+            <button type="submit">Supprimer la competence</button>
+            <button type="button" onclick="hidePopup()2">Annuler</button>
+        </form>     
+    </div>
+
 
     <section id="projects">
         <h1 class="title">Mes Projets</h1>
@@ -128,42 +171,6 @@
             </div>
         </div>
     </section>
-
-    <!-- <section id="projects">
-        <h1 class="title">Mes Projets</h1>
-        <div class="experience-details-container">
-            <div class="about-containers">
-                <div class="details-container color-container">
-                    <div class="article-container">
-                        <img src="images/r6_pack.png" alt="Project 3" class="project-img"/>
-                    </div>
-                    <h2 class="experience-sub-title project-title">Site R6 Packs</h2>
-                    <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" onclick="location.href='r6_pack.fr'">Live Demo</button>
-                    </div>
-                </div>
-                <div class="details-container color-container1">
-                    <div class="article-container">
-                        <img src="images/r6_pack.png" alt="Project 3" class="project-img"/>
-                    </div>
-                    <h2 class="experience-sub-title project-title">Portfolio PHP</h2>
-                    <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" onclick="location.href='portfoliophp.fr'">Live Demo</button>
-                    </div>
-                </div>
-                <div class="details-container color-container">
-                    <div class="article-container">
-                        <img src="images/2d.png" alt="Project 3" class="project-img"/>
-                    </div>
-                    <h2 class="experience-sub-title project-title">Site Planning</h2>
-                    <div class="btn-container">
-                        <button class="btn btn-color-2 project-btn" onclick="location.href='planning.fr'">Live Demo</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
 
     <section id="stage">
         <h1 class="title">Mes Expériences</h1>
