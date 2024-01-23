@@ -1,6 +1,9 @@
 <?php
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
+    if (!isset($_SESSION['admin'])) {
+        $_SESSION['admin'] = false;
+    }    
 }
 ?>
 <html lang="en">
@@ -8,28 +11,16 @@ if (session_status() == PHP_SESSION_NONE) {
         <nav class="navbar">
             <div class="logo">Alexandre Perez</div>
             <ul class="nav-list">
-                <li class="menu-deroulant"><a href="#">Accueil</a></li>
+                <li class="menu-deroulant"><a href="/">Accueil</a></li>
                 <li class="menu-deroulant"><a href="#">Mon CV</a>
                     <ul class="sous">
                         <li><a href="img/Alex.pdf"><span class="hover-underline-animation">CV</span></a></li>
                         <li><a href="img/perez.pdf"><span class="hover-underline-animation">Motivation</span></a></li>
                     </ul>
                 </li>
-                <li class="menu-deroulant"><a href="#">Projets</a>
-                    <ul class="sous">
-                        <li><a href="#"><span class="hover-underline-animation">R6 Packs</span></a></li>
-                        <li><a href="#"><span class="hover-underline-animation">Portfolio PHP</span></a></li>
-                        <li><a href="#"><span class="hover-underline-animation">Planning</span></a></li>
-                    </ul>
-                </li>
-                <li class="menu-deroulant"><a href="#">Mon blog</a>
-                    <ul class="sous">
-                        <li><a href="/contact"><span class="hover-underline-animation">contact</span></a></li>
-                        <li><a href="/blog"><span class="hover-underline-animation">blog</span></a></li>
-                        <li><a href="/login"><span class="hover-underline-animation">log in</span></a></li>
-                    </ul>
-                </li>
-                <?php if(isset($_SESSION['admin']) && $_SESSION['admin']): ?>
+                <li class="menu-deroulant"><a href="/blog">Blog</a></li>
+                <li class="menu-deroulant"><a href="/contact">Contact</a></li>
+                <?php if(isset($_SESSION['admin'])): ?>
                     <button onclick="deconnecter()">Déconnecter</button>
                 <?php else: ?>
                     <button onclick="redirigerVersLogin()">Se connecter</button>

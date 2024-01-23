@@ -1,25 +1,29 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-$database = new Database();
-$db = $database->getConnection();
-$user = new User($database);
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = isset($_POST['username']) ? $_POST['username'] : null;
-    $password = isset($_POST['password']) ? $_POST['password'] : null;
-
-    $user = new User(new Database());
-
-    if ($user->login($username, $password)) {
-        $_SESSION['admin'] = true; // Démarrez la session admin
-        echo "Login successful! <script>window.location.href='/';</script>";
-        exit();
-    } else {
-        echo "Login failed!";
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
     }
-}
+    if (!isset($_SESSION['admin'])) {
+        $_SESSION['admin'] = false;
+    }
+    
+    $database = new Database();
+    $db = $database->getConnection();
+    $user = new User($database);
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $username = isset($_POST['username']) ? $_POST['username'] : null;
+        $password = isset($_POST['password']) ? $_POST['password'] : null;
+
+        $user = new User(new Database());
+
+        if ($user->login($username, $password)) {
+            $_SESSION['admin'] = true; // Démarrez la session admin
+            echo "Login successful! <script>window.location.href='/';</script>";
+            exit();
+        } else {
+            echo "Login failed!";
+        }
+    }
 ?>
 
 <html lang="en">

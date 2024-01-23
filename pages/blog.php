@@ -61,6 +61,7 @@
                     echo '<span class="tag tag-blue">' . htmlspecialchars($row['category']) . '</span>';
                     echo '<h4>' . htmlspecialchars($row['title']) . '</h4>';
                     echo '<p>' . htmlspecialchars($row['description']) . '</p>';
+                    echo '<a href="/article/' . $row['id'] . '">En savoir plus</a>';
                     echo '</div>';
                     echo '<div class="card__footer">';
                     echo '<div class="user">';

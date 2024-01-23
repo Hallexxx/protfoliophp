@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table monportfolio.admin : ~0 rows (environ)
+-- Listage des données de la table monportfolio.admin : ~1 rows (environ)
 DELETE FROM `admin`;
 INSERT INTO `admin` (`id`, `user`, `password`) VALUES
 	(1, 'alex', 'alex');
@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `contact_messages` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table monportfolio.contact_messages : ~0 rows (environ)
+-- Listage des données de la table monportfolio.contact_messages : ~1 rows (environ)
 DELETE FROM `contact_messages`;
 INSERT INTO `contact_messages` (`id`, `name`, `email`, `message`, `created_at`, `phone`) VALUES
 	(1, 'dzqdq', 'alex.perezac490@gmail.com', 'dqzdqz', '2024-01-20 11:37:10', 'dqzdzqd');
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `experience` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table monportfolio.experience : ~2 rows (environ)
+-- Listage des données de la table monportfolio.experience : ~3 rows (environ)
 DELETE FROM `experience`;
 INSERT INTO `experience` (`id`, `name_experience`, `img_experience`) VALUES
 	(1, 'Stage 2 mois Atout France', 'images/Atouts.png'),
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `projets` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table monportfolio.projets : ~2 rows (environ)
+-- Listage des données de la table monportfolio.projets : ~3 rows (environ)
 DELETE FROM `projets`;
 INSERT INTO `projets` (`id`, `name_projets`, `img_projets`) VALUES
 	(1, 'Site R6 Packs', 'images/r6_pack.png'),
@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `skills` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- Listage des données de la table monportfolio.skills : ~11 rows (environ)
+-- Listage des données de la table monportfolio.skills : ~12 rows (environ)
 DELETE FROM `skills`;
 INSERT INTO `skills` (`id`, `skill_name`, `niveau`) VALUES
 	(1, 'HTML', 'Avancée'),
