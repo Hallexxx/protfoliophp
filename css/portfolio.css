@@ -676,3 +676,10 @@ color: blue;
   margin: 1vh 0 1vh 0;
 }
 
+.skill-name-hover {
+  cursor: pointer;
+}
+
+.skill-name-hover:hover + .icon {
+  display: block;
+}

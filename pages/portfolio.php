@@ -90,9 +90,9 @@
                     echo '<article>';
                     echo '<img src="images/checkmark.png" alt="Experience icon" class="icon"/>';
                     echo '<div>';
-                    if(isset($_SESSION['admin'])):
+                    // if(isset($_SESSION['admin'])):
                         echo '<img src="/images/info.png" alt="Experience icon" class="icon" style="display: none;"/>';
-                    endif;
+                    // endif;
                     echo '<h3 class="skill-name">' . $skill['skill_name'] . '</h3>';
                     echo '<p>Maîtrise ' . $skill['niveau'] . '</p>';
                     echo '</div>';
@@ -111,9 +111,9 @@
                     echo '<article>';
                     echo '<img src="images/checkmark.png" alt="Experience icon" class="icon"/>';
                     echo '<div>';
-                    if(isset($_SESSION['admin'])):
-                        echo '<img src="/images/info.png" alt="Experience icon" class="icon" onclick="showPopup2()" style="display: none;"/>';
-                    endif;
+                    // if(isset($_SESSION['admin'])):
+                        echo '<img src="/images/info.png" alt="Experience icon" class="icon" onclick="showPopup2(\'' . $skill['skill_name'] . '\', \'' . $skill['id'] . '\')"/>';
+                    // endif;
                     echo '<h3 class="skill-name">' . $skill['skill_name'] . '</h3>';
                     echo '<p>Maîtrise ' . $skill['niveau'] . '</p>';
                     echo '</div>';
@@ -143,18 +143,21 @@
 
     <div id="popup2" style="display: none;">
         <form class="modif_comp" method="post" action="">
-            <h3>Modifier la competence</h3>
+            <h3>Modifier la compétence</h3>
 
             <label for="name">Nom</label>
-            <input type="text" placeholder="Name" id="name" name="name">
+            <input type="text" placeholder="Name" id="name" name="name" readonly>
+
+            <!-- Champ caché pour stocker l'ID ou le nom de la compétence -->
+            <input type="hidden" id="skillId" name="id" value="">
 
             <label for="level">Niveau</label>
             <input type="text" placeholder="Niveau" id="level" name="level">
 
-            <button type="submit">Modifier la competences</button>
-            <button type="submit">Supprimer la competence</button>
-            <button type="button" onclick="hidePopup()2">Annuler</button>
-        </form>     
+            <button type="submit" name="update">Modifier la compétence</button>
+            <button type="submit" name="delete">Supprimer la compétence</button>
+            <button type="button" onclick="hidePopup2()">Annuler</button>
+        </form>
     </div>
 
 
