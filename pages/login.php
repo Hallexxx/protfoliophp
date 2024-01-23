@@ -11,9 +11,9 @@
 
         if ($user->login($username, $password)) {
             session_start();
-            $_SESSION['admin'] = true; // Démarrez la session admin
-            echo "Login successful!"; //<script>window.location.href='/';</script>";
-            // header("Location: /");
+            $_SESSION['admin_log'] = true;
+            echo "Login successful!";
+            header("Location: /");
             exit();
         } else {
             echo "Login failed!";

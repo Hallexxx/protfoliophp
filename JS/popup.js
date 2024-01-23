@@ -47,14 +47,6 @@ function hidePopup2() {
 }
 
 
-function hidePopup2() {
-    var popup2 = document.getElementById('popup2');
-    if (popup2) {
-        popup2.style.display = 'none';
-    }
-}
-
-
 // Attendez que le DOM soit chargé
 document.addEventListener("DOMContentLoaded", function () {
     // Sélectionnez tous les éléments avec la classe skill-name-hover

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -80,9 +83,9 @@
                 }
                 
                 echo '<div class="details-container">';
-                // if(isset($_SESSION['admin'])):
+                if(isset($_SESSION['admin_log'])):
                     echo '<img class="info_img" src="/images/info.png" alt="" onclick="showPopup()">';
-                // endif;
+                endif;
                 echo '<h2 class="experience-sub-title">Frontend Development</h2> ';
                 echo '<img src="plus.png" alt="">';
                 echo '<div class="article-container">';
@@ -90,9 +93,9 @@
                     echo '<article>';
                     echo '<img src="images/checkmark.png" alt="Experience icon" class="icon"/>';
                     echo '<div>';
-                    // if(isset($_SESSION['admin'])):
-                        echo '<img src="/images/info.png" alt="Experience icon" class="icon" style="display: none;"/>';
-                    // endif;
+                    if(isset($_SESSION['admin_log'])):
+                        echo '<img src="/images/info.png" alt="Experience icon" class="icon" onclick="showPopup2(\'' . $skill['skill_name'] . '\', \'' . $skill['id'] . '\')"/>';
+                    endif;
                     echo '<h3 class="skill-name">' . $skill['skill_name'] . '</h3>';
                     echo '<p>Maîtrise ' . $skill['niveau'] . '</p>';
                     echo '</div>';
@@ -102,18 +105,18 @@
                 echo '</div>';
 
                 echo '<div class="details-container">';
-                // if(isset($_SESSION['admin'])):
+                if(isset($_SESSION['admin_log'])):
                     echo '<img class="info_img" src="/images/info.png" alt="" onclick="showPopup()">';
-                // endif;
+                endif;
                 echo '<h2 class="experience-sub-title">Frontend Development</h2>';
                 echo '<div class="article-container">';
                 foreach ($skills_group_2 as $skill) {
                     echo '<article>';
                     echo '<img src="images/checkmark.png" alt="Experience icon" class="icon"/>';
                     echo '<div>';
-                    // if(isset($_SESSION['admin'])):
+                    if(isset($_SESSION['admin_log'])):
                         echo '<img src="/images/info.png" alt="Experience icon" class="icon" onclick="showPopup2(\'' . $skill['skill_name'] . '\', \'' . $skill['id'] . '\')"/>';
-                    // endif;
+                    endif;
                     echo '<h3 class="skill-name">' . $skill['skill_name'] . '</h3>';
                     echo '<p>Maîtrise ' . $skill['niveau'] . '</p>';
                     echo '</div>';
@@ -146,9 +149,7 @@
             <h3>Modifier la compétence</h3>
 
             <label for="name">Nom</label>
-            <input type="text" placeholder="Name" id="name" name="name" readonly>
-
-            <!-- Champ caché pour stocker l'ID ou le nom de la compétence -->
+            <input type="text" placeholder="Name" id="name" name="name">
             <input type="hidden" id="skillId" name="id" value="">
 
             <label for="level">Niveau</label>
@@ -164,7 +165,7 @@
     <section id="projects">
         <h1 class="title">Mes Projets</h1>
         <div class="experience-details-container" >
-            <div class="about-containers">
+            <div class="about-containers" id="reduc">
                 <?php
                 foreach ($projets as $projet) {
                     echo '<div class="details-container color-container">';

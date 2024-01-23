@@ -16,16 +16,25 @@
         public function delete() {
             $query = "DELETE FROM competence WHERE id = :id";
             $params = [':id' => $this->id];
-
-            $this->database->executeQuery($query, $params);
+        
+            if ($this->database->executeQuery($query, $params)) {
+                echo "Competence deleted successfully.";
+            } else {
+                echo "Error deleting competence.";
+            }
         }
-
+        
         public function update($newLevel) {
             $query = "UPDATE competence SET niveau = :level WHERE id = :id";
             $params = [':level' => $newLevel, ':id' => $this->id];
-
-            $this->database->executeQuery($query, $params);
+        
+            if ($this->database->executeQuery($query, $params)) {
+                echo "Competence updated successfully.";
+            } else {
+                echo "Error updating competence.";
+            }
         }
+        
     }
 
     // Usage
@@ -34,13 +43,13 @@
 
     if (isset($_POST['name'])) {
         $competence = new Competence($_POST['id'], $_POST['name'], $_POST['level'], $database);
-
+    
         if (isset($_POST['delete'])) {
             $competence->delete();
         } elseif (isset($_POST['update'])) {
-            $newLevel = $_POST['new_level'];
+            $newLevel = $_POST['level'];
             $competence->update($newLevel);
         }
-    }
+    }    
 
 ?>

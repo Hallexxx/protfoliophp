@@ -1,6 +1,7 @@
 <?php
     include('includes/database.php');
     include('includes/user.php');
+    // include('includes/logout.php');
 
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
@@ -12,14 +13,12 @@
         case '':
             include_once('includes/header.php');
             include_once('includes/ajout_competence.php');
+            include_once('includes/Competence.php');
             require 'pages/portfolio.php';
             break;
         case 'login':
             include_once('includes/header.php');
             require 'pages/login.php';
-            break;
-        case 'about':
-            require 'pages/about.php';
             break;
         case 'contact':
             include_once('includes/header.php');
@@ -28,12 +27,17 @@
             break;
         case 'blog':
             include_once('includes/FilterPosts.php');
+            include_once('includes/ajout_blog.php');
             include_once('includes/Categories.php');
+            include_once('includes/get_posts_details.php');
             require 'pages/blog.php';
             break;
         case 'message':
             include_once('includes/affichage_contact.php');
             require 'pages/message.php';
+            break;
+        case 'logout':
+            require 'pages/logout.php';
             break;
         case 'article':
             if (isset($uriParts[2])) {

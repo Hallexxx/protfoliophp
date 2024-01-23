@@ -327,7 +327,6 @@ article .icon {
 #projects {
   position: relative;
   margin-top: 10%;
-  margin-bottom: 5%;
 }
 
 .color-container {
@@ -348,7 +347,7 @@ article .icon {
 }
 
 .project-title {
-  margin: 1rem;
+  /* margin: 1rem; */
   color: black;
 }
 
@@ -673,6 +672,40 @@ color: blue;
 
 
 #popup button{
+  margin: 1vh 0 1vh 0;
+}
+
+#popup2{
+  display: flex;
+  position: fixed;
+  left: 37%;
+  top:30%;
+  padding: 3vh 10vh;
+  flex-direction: column;
+  border-radius: 20px;
+  z-index: 10;
+  background-color: rgb(216, 216, 216);
+}
+
+#popup2 form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+} 
+
+
+#popup2 label{
+  margin: 1vh 0 0 0;
+}
+
+
+#popup2 input{
+  margin: 1vh 0 1vh 0;
+}
+
+
+#popup2 button{
   margin: 1vh 0 1vh 0;
 }
 

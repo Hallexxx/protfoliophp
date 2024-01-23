@@ -20,11 +20,11 @@ window.onload = function () {
     // Fonction pour faire grandir les éléments
     function enlargeElements() {
         projectTitle.style.transition = 'transform 1.5s';
-        projectTitle.style.transform = 'scale(1.1)';
+        projectTitle.style.transform = 'scale(1)';
 
         projectContainers.forEach(function (container) {
             container.style.transition = 'transform 1.5s';
-            container.style.transform = 'scale(1.1)';
+            container.style.transform = 'scale(1)';
         });
     }
 

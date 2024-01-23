@@ -282,3 +282,81 @@ button {
   cursor: pointer;
   outline: none;
 }
+
+.add_blog{
+  width: 5%;
+  cursor: pointer;
+}
+
+.mod_blog{
+  width: 5%;
+  cursor: pointer;
+}
+
+#popup3{
+  display: flex;
+  position: fixed;
+  left: 37%;
+  top:30%;
+  padding: 3vh 10vh;
+  flex-direction: column;
+  border-radius: 20px;
+  z-index: 10;
+  background-color: rgb(216, 216, 216);
+}
+
+#popup3 form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+} 
+
+
+#popup3 label{
+  margin: 1vh 0 0 0;
+}
+
+
+#popup3 input{
+  margin: 1vh 0 1vh 0;
+}
+
+
+#popup3 button{
+  margin: 1vh 0 1vh 0;
+}
+
+#popup4{
+  display: flex;
+  position: fixed;
+  left: 37%;
+  top:30%;
+  padding: 3vh 10vh;
+  flex-direction: column;
+  border-radius: 20px;
+  z-index: 10;
+  background-color: rgb(216, 216, 216);
+}
+
+#popup4 form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+} 
+
+
+#popup4 label{
+  margin: 1vh 0 0 0;
+}
+
+
+#popup4 input{
+  margin: 1vh 0 1vh 0;
+}
+
+
+#popup4 button{
+  margin: 1vh 0 1vh 0;
+}
