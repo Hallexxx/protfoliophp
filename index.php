@@ -14,7 +14,6 @@
             break;
         case '/login':
             include_once('includes/header.php');
-            include_once('includes/logout.php');
             require 'pages/login.php';
             break;
         case '/about':

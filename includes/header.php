@@ -29,12 +29,12 @@ if (session_status() == PHP_SESSION_NONE) {
                         <li><a href="/login"><span class="hover-underline-animation">log in</span></a></li>
                     </ul>
                 </li>
-                <?php
-                    // Vérifier si l'utilisateur est en mode admin
-                    if (isset($_SESSION['admin']) && $_SESSION['admin']) {
-                        echo '<li class="menu-deroulant" id="logout-link"><a href="#">Déconnexion</a></li>';
-                    }
-                ?>
+                <?php if(isset($_SESSION['admin']) && $_SESSION['admin']): ?>
+                    <button onclick="deconnecter()">Déconnecter</button>
+                <?php else: ?>
+                    <button onclick="redirigerVersLogin()">Se connecter</button>
+                <?php endif; ?>
+
                 <svg display="none">
                     <symbol id="light" viewBox="0 0 24 24">
                         <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
@@ -73,21 +73,7 @@ if (session_status() == PHP_SESSION_NONE) {
                 </label>
             </ul>
         </nav> 
-        <script>
-            // Ajouter un écouteur d'événements au lien de déconnexion
-            document.getElementById('logout-link').addEventListener('click', function() {
-                // Effectuer une requête AJAX vers le script de déconnexion
-                var xhr = new XMLHttpRequest();
-                xhr.open('GET', '/logout.php', true);
-                xhr.onload = function() {
-                    if (xhr.status === 200) {
-                        // Si la déconnexion est réussie, recharger la page
-                        window.location.reload();
-                    }
-                };
-                xhr.send();
-            });
-        </script>
+        <script src="/JS/log.js"></script>
     </body>
 </html>
 
