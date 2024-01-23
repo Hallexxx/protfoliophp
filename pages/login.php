@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <link rel="stylesheet" href="/css/portfolio.css">
         <script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <script src="/animation.js"></script>
+        <script src="/JS/animation.js"></script>
     </head>
     <body>
         <div class="background">

@@ -26,6 +26,8 @@
             require 'pages/contact.php';
             break;
         case '/blog':
+            include_once('includes/FilterPosts.php');
+            include_once('includes/Categories.php');
             require 'pages/blog.php';
             break;
         default:

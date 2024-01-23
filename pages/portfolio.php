@@ -11,7 +11,7 @@
         <link rel="icon" href="img/ynovb.png" type="image/x-icon">
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-        <script src="/animation.js"></script>
+        <script src="/JS/animation.js"></script>
     </head>
 
     <?php

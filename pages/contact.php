@@ -1,7 +1,6 @@
 <?php
     // include_once '../includes/db_connect.php';
     // include_once '../includes/functions.php';
-    $database = new Database();
 ?>
 <html lang="en">
     <head>
@@ -12,14 +11,15 @@
         <link rel="stylesheet" href="/css/portfolio.css">
         <script src="https://unpkg.com/gsap@3.9.0/dist/gsap.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <script src="/animation.js"></script>
+        <script src="/JS/animation.js"></script>
+        <script src="/JS/contact.js"></script>
     </head>
     <div class="container_contact">
         <div class="row">
             <h1>contact us</h1>
         </div>
         <div class="row input-container">
-            <form action="handle_contact_form.php" method="post">
+            <form id="contact-form" action="traitement_contact.php" method="post">
                 <div class="col-xs-12">
                     <div class="styled-input wide">
                         <input type="text" name="name" required />
