@@ -31,6 +31,10 @@
             include_once('includes/Categories.php');
             require 'pages/blog.php';
             break;
+        case 'message':
+            include_once('includes/affichage_contact.php');
+            require 'pages/message.php';
+            break;
         case 'article':
             if (isset($uriParts[2])) {
                 include_once('pages/article.php');

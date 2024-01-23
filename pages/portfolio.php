@@ -69,9 +69,16 @@
         <div class="experience-details-container">
             <div class="about-containers">
                 <?php
-                $skills_group_1 = array_slice($skills, 0, count($skills) / 2);
-                $skills_group_2 = array_slice($skills, count($skills) / 2);
-
+                $skills_group_1 = [];
+                $skills_group_2 = [];
+                
+                if (count($skills) >= 2) {
+                    $skills_group_1 = array_slice($skills, 0, ceil(count($skills) / 2));
+                    $skills_group_2 = array_slice($skills, ceil(count($skills) / 2));
+                } elseif (count($skills) == 1) {
+                    $skills_group_1 = $skills;
+                }
+                
                 echo '<div class="details-container">';
                 // if(isset($_SESSION['admin'])):
                     echo '<img class="info_img" src="/images/info.png" alt="" onclick="showPopup()">';
@@ -83,9 +90,9 @@
                     echo '<article>';
                     echo '<img src="images/checkmark.png" alt="Experience icon" class="icon"/>';
                     echo '<div>';
-                    // if(isset($_SESSION['admin'])):
+                    if(isset($_SESSION['admin'])):
                         echo '<img src="/images/info.png" alt="Experience icon" class="icon" style="display: none;"/>';
-                    // endif;
+                    endif;
                     echo '<h3 class="skill-name">' . $skill['skill_name'] . '</h3>';
                     echo '<p>Maîtrise ' . $skill['niveau'] . '</p>';
                     echo '</div>';
@@ -104,9 +111,9 @@
                     echo '<article>';
                     echo '<img src="images/checkmark.png" alt="Experience icon" class="icon"/>';
                     echo '<div>';
-                    // if(isset($_SESSION['admin'])):
+                    if(isset($_SESSION['admin'])):
                         echo '<img src="/images/info.png" alt="Experience icon" class="icon" onclick="showPopup2()" style="display: none;"/>';
-                    // endif;
+                    endif;
                     echo '<h3 class="skill-name">' . $skill['skill_name'] . '</h3>';
                     echo '<p>Maîtrise ' . $skill['niveau'] . '</p>';
                     echo '</div>';
@@ -120,7 +127,7 @@
     </section>
 
     <div id="popup" style="display: none;">
-        <form class="add_comp" method="post" action="ajout_competence.php">
+        <form class="add_comp" id="add-form" method="post" action="ajout_competence.php" enctype="multipart/form-data">
             <h3 id="popupTitle">Ajouter une compétence</h3>
 
             <label for="name">Nom</label>
@@ -129,7 +136,7 @@
             <label for="level">Niveau</label>
             <input type="text" placeholder="Niveau" id="level" name="level">
 
-            <button type="button" onclick="addCompetence(event)">Ajouter la compétence</button>
+            <button type="submit">Ajouter la compétence</button>
             <button type="button" onclick="hidePopup()">Annuler</button>
         </form>
     </div>

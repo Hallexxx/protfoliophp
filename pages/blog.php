@@ -26,7 +26,7 @@
     <aside class="navleft">
         <div class="div_tags">
             <div class="element_tag">
-                <h4 class="fil fil1"><span class="hover-underline-animation">Messagerie</span><img src="../images/email.png" alt=""></h4>
+                <h4 class="fil fil1" onclick="redirectToMessage()"><span class="hover-underline-animation">Messagerie</span><img src="../images/email.png" alt=""></h4>
                 <h4 class="fil fil2"><span class="hover-underline-animation">Tous mes postes</span><img src="../images/post.png" alt=""></h4>
                 <h4 class="fil fil3"><span class="hover-underline-animation">Trier par date</span><img src="../images/mobile.png" alt=""></h4>
                 <h4 class="fil fil4" id="tag4"><span class="hover-underline-animation">Tag 4</span></h4>
@@ -76,4 +76,10 @@
             }
             ?>
     </div>
+    <script>
+        function redirectToMessage() {
+            // Ajoutez ici le code pour rediriger vers l'URL souhaitée
+            window.location.href = "/message";
+        }
+    </script>
 </html>

@@ -1,11 +1,3 @@
-<?php
-// if (session_status() == PHP_SESSION_NONE) {
-//     session_start();
-//     if (!isset($_SESSION['admin'])) {
-//         $_SESSION['admin'] = false;
-//     }    
-// }
-?>
 <html lang="en">
     <body>
         <nav class="navbar">
@@ -20,11 +12,6 @@
                 </li>
                 <li class="menu-deroulant"><a href="/blog">Blog</a></li>
                 <li class="menu-deroulant"><a href="/contact">Contact</a></li>
-                <?php if(isset($_SESSION['admin'])): ?>
-                    <button onclick="deconnecter()">Déconnecter</button>
-                <?php else: ?>
-                    <button><a href="/login">Se connecter</a></button>
-                <?php endif; ?>
 
                 <svg display="none">
                     <symbol id="light" viewBox="0 0 24 24">
@@ -63,8 +50,7 @@
                     </span>
                 </label>
             </ul>
-        </nav> 
-        <script src="/JS/log.js"></script>
+        </nav>
     </body>
 </html>
 

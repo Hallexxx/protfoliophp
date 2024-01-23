@@ -1,24 +1,19 @@
 <?php
-    if (session_status() == PHP_SESSION_NONE) {
-        session_start();
-    }
-    if (!isset($_SESSION['admin'])) {
-        $_SESSION['admin'] = false;
-    }
     
     $database = new Database();
     $db = $database->getConnection();
-    $user = new User($database);
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $username = isset($_POST['username']) ? $_POST['username'] : null;
         $password = isset($_POST['password']) ? $_POST['password'] : null;
 
-        $user = new User(new Database());
+        $user = new User($database);
 
         if ($user->login($username, $password)) {
+            session_start();
             $_SESSION['admin'] = true; // Démarrez la session admin
-            echo "Login successful! <script>window.location.href='/';</script>";
+            echo "Login successful!"; //<script>window.location.href='/';</script>";
+            // header("Location: /");
             exit();
         } else {
             echo "Login failed!";
@@ -42,7 +37,7 @@
             <div class="shape"></div>
             <div class="shape"></div>
         </div>
-        <form class="login" method="post" action="">
+        <form class="login" method="POST" action="">
             <h3>Login Here</h3>
 
             <label for="username">Username</label>

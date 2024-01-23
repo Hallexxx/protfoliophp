@@ -12,36 +12,20 @@ function hidePopup() {
     }
 }
 
-function addCompetence(e) {
-    e.preventDefault();
-    // Récupérez les données du formulaire
-    var name = document.getElementById('name').value;
-    var level = document.getElementById('level').value;
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelector('#add-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        console.log(e.target);
 
-    // Créez un objet FormData pour envoyer les données du formulaire
-    var formData = new FormData();
-    formData.append('name', name);
-    formData.append('level', level);
-
-    // Créez et configurez l'objet XMLHttpRequest
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'ajout_competence.php', true);
-
-    // Configurez la fonction de rappel pour gérer la réponse
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            // La requête a réussi
-            console.log(xhr.responseText);
-            hidePopup(); // Cacher la popup après l'ajout de la compétence
-        } else {
-            // La requête a échoué
-            console.error(xhr.statusText);
+        const response = await fetch('/includes/ajout_competence.php', {
+            method: 'POST',
+            body: new FormData(e.target),
+        });
+        if (response.ok) {
+            window.location.reload();
         }
-    };
-
-    // Envoyez les données du formulaire à l'aide de l'objet FormData
-    xhr.send(formData);
-}
+    });
+});
 
 function showPopup2() {
     var popup2 = document.getElementById('popup2');
