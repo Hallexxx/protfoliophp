@@ -17,6 +17,7 @@ session_start();
             <ul class="nav-list">
                 <li class="menu-deroulant"><a href="/">Accueil</a></li>
                 <li class="menu-deroulant"><a href="/contact">Contact</a></li></li>
+            </ul>
     </nav>
     <aside class="navleft">
         <div class="div_tags">

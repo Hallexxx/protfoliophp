@@ -47,6 +47,28 @@ function hidePopup2() {
 }
 
 
+function hidePopup2() {
+    var popup2 = document.getElementById('popup2');
+    if (popup2) {
+        popup2.style.display = 'none';
+    }
+}
+
+function showPopup5() {
+    var popup5 = document.getElementById('popup5');
+    if (popup5) {
+        popup5.style.display = 'block';
+    }
+}
+
+function hidePopup5() {
+    var popup5 = document.getElementById('popup5');
+    if (popup5) {
+        popup5.style.display = 'none';
+    }
+}
+
+
 // Attendez que le DOM soit chargé
 document.addEventListener("DOMContentLoaded", function () {
     // Sélectionnez tous les éléments avec la classe skill-name-hover
