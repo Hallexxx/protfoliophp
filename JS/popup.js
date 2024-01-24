@@ -54,6 +54,29 @@ function hidePopup2() {
     }
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelector('#add-pro').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Ajout automatique de l'image r6_pack.png au champ d'image
+        const imgInput = document.createElement('input');
+        imgInput.type = 'hidden';
+        imgInput.name = 'img_projets';
+        imgInput.value = 'images/r6_pack.png';
+        e.target.appendChild(imgInput);
+
+        const response = await fetch('/includes/ajout_projets.php', {
+            method: 'POST',
+            body: new FormData(e.target),
+        });
+
+        if (response.ok) {
+            window.location.reload();
+        }
+    });
+});
+
+
 function showPopup5() {
     var popup5 = document.getElementById('popup5');
     if (popup5) {
@@ -65,6 +88,37 @@ function hidePopup5() {
     var popup5 = document.getElementById('popup5');
     if (popup5) {
         popup5.style.display = 'none';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelector('#add-experience').addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const response = await fetch('/includes/ajout_experience.php', {
+            method: 'POST',
+            body: new FormData(e.target),
+        });
+
+        if (response.ok) {
+            window.location.reload();
+        }
+    });
+});
+
+
+
+function showPopup7() {
+    var popup7 = document.getElementById('popup7');
+    if (popup7) {
+        popup7.style.display = 'block';
+    }
+}
+
+function hidePopup7() {
+    var popup7 = document.getElementById('popup7');
+    if (popup7) {
+        popup7.style.display = 'none';
     }
 }
 

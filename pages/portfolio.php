@@ -166,12 +166,13 @@ session_start();
         <h1 class="title">Mes Projets</h1>
         <div class="experience-details-container" >
             <div class="about-containers" id="reduc">
+                <img class="plus_pro" src="/images/plus.png" alt="" onclick="showPopup5()">
                 <?php
                 foreach ($projets as $projet) {
                     echo '<div class="details-container color-container">';
                     echo '<div class="article-container">';
                     if(isset($_SESSION['admin_log'])):
-                        echo '<img class="info_img" src="/images/info.png" alt="" onclick="showPopup5()">';
+                        echo '<img class="infos_img" src="/images/info.png" alt="" >';
                     endif;
                     echo '<img src="' . $projet['img_projets'] . '" alt="' . $projet['name_projets'] . '" class="project-img"/>';
                     echo '</div>';
@@ -188,16 +189,16 @@ session_start();
 
     <div id="popup5" style="display: none;">
         <form class="add_pro" id="add-pro" method="post" action="ajout_projets.php" enctype="multipart/form-data">
-            <h3 id="popupTitle">Ajouter une compétence</h3>
+            <h3 id="popupTitle">Ajouter un projet</h3>
 
             <label for="name">Nom</label>
             <input type="text" placeholder="Name" id="name" name="name">
 
-            <label for="level">Niveau</label>
-            <input type="text" placeholder="Niveau" id="level" name="level">
+            <label for="img_projets">Image du Projet</label>
+            <input type="file" id="img_projets" name="img_projets" accept="image/*">
 
-            <button type="submit">Ajouter la compétence</button>
-            <button type="button" onclick="hidePopup()">Annuler</button>
+            <button type="submit">Ajouter le projets</button>
+            <button type="button" onclick="hidePopup5()">Annuler</button>
         </form>
     </div>
 
@@ -221,6 +222,7 @@ session_start();
     <section id="stage">
         <h1 class="title">Mes Expériences</h1>
         <div class="experience-details-container">
+            <img class="plus_pro" src="/images/plus.png" alt="" onclick="showPopup7()">
             <div class="about-containers">
                 <i class="slider">
                     <?php
@@ -232,6 +234,40 @@ session_start();
             </div>
         </div>
     </section>
+
+
+    <div id="popup7" style="display: none;">
+        <form class="add_pro" id="add-experience" method="post" action="ajout_experience.php" enctype="multipart/form-data">
+            <h3 id="popupTitle">Ajouter une expérience</h3>
+
+            <label for="name_experience">Nom de l'expérience</label>
+            <input type="text" placeholder="Nom" id="name_experience" name="name_experience">
+
+            <label for="img_experience">Image de l'Expérience</label>
+            <input type="file" id="img_experience" name="img_experience" accept="image/*">
+
+            <button type="submit">Ajouter l'expérience</button>
+            <button type="button" onclick="hidePopup7()">Annuler</button>
+        </form>
+    </div>
+
+
+    <div id="popup8" style="display: none;">
+        <form class="modif_comp" method="post" action="">
+            <h3>Modifier la compétence</h3>
+
+            <label for="name">Nom</label>
+            <input type="text" placeholder="Name" id="name" name="name">
+            <input type="hidden" id="skillId" name="id" value="">
+
+            <label for="level">Niveau</label>
+            <input type="text" placeholder="Niveau" id="level" name="level">
+
+            <button type="submit" name="update">Modifier la compétence</button>
+            <button type="submit" name="delete">Supprimer la compétence</button>
+            <button type="button" onclick="hidePopup8()">Annuler</button>
+        </form>
+    </div>
 
 </html>
         <?php

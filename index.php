@@ -13,6 +13,7 @@
             include_once('includes/header.php');
             include_once('includes/ajout_competence.php');
             include_once('includes/ajout_projets.php');
+            include_once('includes/ajout_experience.php');
             include_once('includes/Competence.php');
             require 'pages/portfolio.php';
             break;
