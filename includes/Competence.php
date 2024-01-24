@@ -1,5 +1,7 @@
 <?php
 
+include_once 'database.php';
+
     class Competence {
         private $id;
         private $name;
@@ -12,9 +14,8 @@
             $this->level = $level;
             $this->database = $database;
         }
-
         public function delete() {
-            $query = "DELETE FROM competence WHERE id = :id";
+            $query = "DELETE FROM skills WHERE id = :id";
             $params = [':id' => $this->id];
         
             if ($this->database->executeQuery($query, $params)) {
@@ -25,7 +26,7 @@
         }
         
         public function update($newLevel) {
-            $query = "UPDATE competence SET niveau = :level WHERE id = :id";
+            $query = "UPDATE skills SET niveau = :level WHERE id = :id";
             $params = [':level' => $newLevel, ':id' => $this->id];
         
             if ($this->database->executeQuery($query, $params)) {

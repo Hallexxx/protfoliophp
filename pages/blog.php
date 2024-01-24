@@ -113,26 +113,27 @@ session_start();
     </div>
 
     <div id="popup4" style="display: none;">
-        <form class="modif_blog" method="post" action="">
-            <h3>Modifier le post</h3>
-
-            <label for="title">title</label>
-            <input type="text" placeholder="title" id="title" name="title">
-
-            <label for="category">category</label>
-            <input type="text" placeholder="category" id="category" name="category">
-
-            <label for="descriptions">descriptions</label>
-            <input type="text" placeholder="descriptions" id="descriptions" name="descriptions">
+        <form id="update-post-form">
+            <input type="hidden" id="update-post-id" name="post-id" value="">
             
-            <label for="author">author</label>
-            <input type="text" placeholder="author" id="author" name="author">
+            <label for="title">Titre</label>
+            <input type="text" placeholder="Titre" id="title" name="title">
 
-            <button type="submit" name="update">Modifier la compétence</button>
-            <button type="submit" name="delete">Supprimer la compétence</button>
+            <label for="category">Catégorie</label>
+            <input type="text" placeholder="Catégorie" id="category" name="category">
+
+            <label for="descriptions">Description</label>
+            <input type="text" placeholder="Description" id="descriptions" name="descriptions">
+            
+            <label for="author">Auteur</label>
+            <input type="text" placeholder="Auteur" id="author" name="author">
+
+            <button type="submit" name="update">Modifier l'article</button>
+            <button type="submit" name="delete">Supprimer l'article</button>
             <button type="button" onclick="hidePopup4()">Annuler</button>
         </form>
     </div>
+
     <script>
         function redirectToMessage() {
             // Ajoutez ici le code pour rediriger vers l'URL souhaitée

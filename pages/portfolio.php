@@ -145,34 +145,42 @@ session_start();
     </div>
 
     <div id="popup2" style="display: none;">
-        <form class="modif_comp" method="post" action="">
-            <h3>Modifier la compétence</h3>
+        <form id="update-comp-form">
+            <input type="hidden" id="update-comp-id" name="comp-id" value="">
+            
+            <label for="update-name">Nom</label>
+            <input type="text" placeholder="Name" id="update-name" name="new-name">
 
-            <label for="name">Nom</label>
-            <input type="text" placeholder="Name" id="name" name="name">
-            <input type="hidden" id="skillId" name="id" value="">
+            <label for="update-niveau_comp">Niveau</label>
+            <input type="text" placeholder="Niveau" id="update-niveau_comp" name="new-level">
 
-            <label for="level">Niveau</label>
-            <input type="text" placeholder="Niveau" id="level" name="level">
-
-            <button type="submit" name="update">Modifier la compétence</button>
-            <button type="submit" name="delete">Supprimer la compétence</button>
-            <button type="button" onclick="hidePopup2()">Annuler</button>
+            <button type="submit">Modifier la compétence</button>
         </form>
+
+        <form id="delete-comp-form">
+            <input type="hidden" id="delete-comp-id" name="comp-id" value="">
+
+            <button type="submit">Supprimer la compétence</button>
+        </form>
+
+        <button type="button" onclick="hidePopup2()">Annuler</button>
     </div>
+
 
 
     <section id="projects">
         <h1 class="title">Mes Projets</h1>
         <div class="experience-details-container" >
             <div class="about-containers" id="reduc">
-                <img class="plus_pro" src="/images/plus.png" alt="" onclick="showPopup5()">
+                <?php
+                    echo '<img class="plus_pro" src="/images/plus.png" alt="" onclick="showPopup5()">';
+                ?>
                 <?php
                 foreach ($projets as $projet) {
                     echo '<div class="details-container color-container">';
                     echo '<div class="article-container">';
                     if(isset($_SESSION['admin_log'])):
-                        echo '<img class="infos_img" src="/images/info.png" alt="" >';
+                        echo '<img class="infos_img" src="/images/info.png" alt="" onclick="showPopup6(' . $projet['id'] . ')">';
                     endif;
                     echo '<img src="' . $projet['img_projets'] . '" alt="' . $projet['name_projets'] . '" class="project-img"/>';
                     echo '</div>';
@@ -203,21 +211,28 @@ session_start();
     </div>
 
     <div id="popup6" style="display: none;">
-        <form class="modif_comp" method="post" action="">
-            <h3>Modifier la compétence</h3>
+        <form id="update-project-form">
+            <input type="hidden" id="update-project-id" name="project-id" value="">
+            
+            <label for="update-name">Nom</label>
+            <input type="text" placeholder="Name" id="update-name" name="new-name">
 
-            <label for="name">Nom</label>
-            <input type="text" placeholder="Name" id="name" name="name">
-            <input type="hidden" id="skillId" name="id" value="">
+            <label for="update-img_projets">Image du Projet</label>
+            <input type="file" id="update-img_projets" name="new-image" accept="image/*">
 
-            <label for="level">Niveau</label>
-            <input type="text" placeholder="Niveau" id="level" name="level">
-
-            <button type="submit" name="update">Modifier la compétence</button>
-            <button type="submit" name="delete">Supprimer la compétence</button>
-            <button type="button" onclick="hidePopup2()">Annuler</button>
+            <button type="submit">Modifier le projet</button>
         </form>
+
+        <form id="delete-project-form">
+            <input type="hidden" id="delete-project-id" name="project-id" value="">
+
+            <button type="submit">Supprimer le projet</button>
+        </form>
+
+        <button type="button" onclick="hidePopup6()">Annuler</button>
     </div>
+
+
 
     <section id="stage">
         <h1 class="title">Mes Expériences</h1>

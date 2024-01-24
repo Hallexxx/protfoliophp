@@ -15,6 +15,10 @@
             include_once('includes/ajout_projets.php');
             include_once('includes/ajout_experience.php');
             include_once('includes/Competence.php');
+            include_once('includes/update_projets.php');
+            include_once('includes/delete_projets.php');
+            include_once('includes/update_comp.php');
+            include_once('includes/delete_comp.php');
             require 'pages/portfolio.php';
             break;
         case 'login':

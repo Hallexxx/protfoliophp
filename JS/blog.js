@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         if (response.ok) {
-            // window.location.reload();
+            window.location.reload();
             console.log("oui")
         } else {
             console.error('Error:', response.statusText);
@@ -88,28 +88,67 @@ function hidePopup3() {
     }
 }
 
-function showPopup4(postId) {
-    // Récupérer les détails du post en fonction de l'ID et les afficher dans le formulaire
-    fetch('get_post_details.php?id=' + postId)
-        .then(response => response.text())
-        .then(data => {
-            try {
-                const jsonData = JSON.parse(data);
-                document.getElementById('title').value = jsonData.title;
-                document.getElementById('category').value = jsonData.category;
-                document.getElementById('descriptions').value = jsonData.description;
-                document.getElementById('author').value = jsonData.author;
+function showPopup4(postId, title, category, descriptions, author) {
+    console.log('showPopup4 called with:', postId, title, category, descriptions, author);
 
-                var popup4 = document.getElementById('popup4');
-                if (popup4) {
-                    popup4.style.display = 'block';
-                }
-            } catch (error) {
-                console.error("Error parsing JSON:", error);
-            }
-        })
-        .catch(error => console.error("Fetch error:", error));
+    // Mettez à jour les champs dans les formulaires avec les données du post sélectionné
+    document.getElementById('update-post-id').value = postId;
+    document.getElementById('delete-post-id').value = postId;
+    document.getElementById('title').value = title;
+    document.getElementById('category').value = category;
+    document.getElementById('descriptions').value = descriptions;
+    document.getElementById('author').value = author;
+
+    var popup4 = document.getElementById('popup4');
+    if (popup4) {
+        console.log('Setting display to block');
+        popup4.style.display = 'block';
+    }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('update-post-form').addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+
+        const response = await fetch('/includes/update_post.php', {
+            method: 'POST',
+            body: formData,
+        });
+
+        if (response.ok) {
+            window.location.reload();
+        } else {
+            console.error('Error updating post:', response.status);
+        }
+    });
+
+    document.getElementById('delete-post-form').addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+
+        const response = await fetch('/includes/delete_post.php', {
+            method: 'POST',
+            body: formData,
+        });
+
+        if (response.ok) {
+            window.location.reload();
+        } else {
+            console.error('Error deleting post:', response.status);
+        }
+    });
+});
+
+function hidePopup4() {
+    var popup4 = document.getElementById('popup4');
+    if (popup4) {
+        popup4.style.display = 'none';
+    }
+}
+
 
 function hidePopup4() {
     var popup4 = document.getElementById('popup4');
