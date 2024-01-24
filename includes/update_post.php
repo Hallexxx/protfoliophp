@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $database = new Database();
     $conn = $database->getConnection();
 
-    $query = "UPDATE blog_posts SET title = :title, category = :category, descriptions = :descriptions, author = :author WHERE id = :postId";
+    $query = "UPDATE blog_posts SET title = :title, category = :category, description = :descriptions, author = :author WHERE id = :postId";
     $stmt = $conn->prepare($query);
     $stmt->bindParam(':title', $title);
     $stmt->bindParam(':category', $category);
@@ -20,9 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bindParam(':postId', $postId);
 
     if ($stmt->execute()) {
-        echo "Post updated successfully!";
+        echo "Competence updated successfully!";
     } else {
-        echo "Error updating post.";
+        echo "Error updating competence.";
     }
 } else {
     echo "Invalid request method.";

@@ -9,12 +9,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
     $query = "SELECT * FROM blog_posts WHERE id = :postId";
     $stmt = $conn->prepare($query);
     $stmt->bindParam(':postId', $postId);
-    $stmt->execute();
-    $postDetails = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    if ($stmt->execute()) {
+        $postDetails = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    header('Content-Type: application/json');
-    echo json_encode($postDetails);
-    exit; // Assurez-vous de terminer l'exécution du script ici
+        if ($postDetails) {
+            header('Content-Type: application/json');
+            echo json_encode($postDetails);
+            exit; // Assurez-vous de terminer l'exécution du script ici
+        } else {
+            echo json_encode(['error' => 'Post not found.']);
+        }
+    } else {
+        echo json_encode(['error' => 'Error executing query.']);
+    }
 }
 ?>
 

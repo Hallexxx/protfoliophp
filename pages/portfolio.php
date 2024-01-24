@@ -173,7 +173,9 @@ session_start();
         <div class="experience-details-container" >
             <div class="about-containers" id="reduc">
                 <?php
-                    echo '<img class="plus_pro" src="/images/plus.png" alt="" onclick="showPopup5()">';
+                    if(isset($_SESSION['admin_log'])):
+                        echo '<img class="plus_pro" src="/images/plus.png" alt="" onclick="showPopup5()">';
+                    endif;
                 ?>
                 <?php
                 foreach ($projets as $projet) {
@@ -237,7 +239,11 @@ session_start();
     <section id="stage">
         <h1 class="title">Mes Expériences</h1>
         <div class="experience-details-container">
-            <img class="plus_pro" src="/images/plus.png" alt="" onclick="showPopup7()">
+            <?php
+                if(isset($_SESSION['admin_log'])):
+                    echo '<img class="plus_pro" src="/images/plus.png" alt="" onclick="showPopup7()">';
+                endif;
+            ?>
             <div class="about-containers">
                 <i class="slider">
                     <?php

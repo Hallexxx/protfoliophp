@@ -226,26 +226,22 @@ function hidePopup7() {
 ////////////////////////////////////////// AFFICHAGE //////////////////////////////////////////
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Sélectionnez tous les éléments avec la classe skill-name-hover
-    var skillNames = document.querySelectorAll('.skill-name-hover');
+// document.addEventListener("DOMContentLoaded", function () {
+//     var skillNames = document.querySelectorAll('.skill-name-hover');
 
-    // Ajoutez un gestionnaire d'événements pour chaque élément
-    skillNames.forEach(function (skillName) {
-        // Lorsque la souris survole l'élément, ajoutez une classe à l'élément suivant (.icon)
-        skillName.addEventListener('mouseover', function () {
-            var icon = this.nextElementSibling;
-            if (icon.classList.contains('icon')) {
-                icon.style.display = 'block';
-            }
-        });
+//     skillNames.forEach(function (skillName) {
+//         skillName.addEventListener('mouseover', function () {
+//             var icon = this.nextElementSibling;
+//             if (icon.classList.contains('icon')) {
+//                 icon.style.display = 'block';
+//             }
+//         });
 
-        // Lorsque la souris quitte l'élément, masquez l'élément suivant (.icon)
-        skillName.addEventListener('mouseout', function () {
-            var icon = this.nextElementSibling;
-            if (icon.classList.contains('icon')) {
-                icon.style.display = 'none';
-            }
-        });
-    });
-});
+//         skillName.addEventListener('mouseout', function () {
+//             var icon = this.nextElementSibling;
+//             if (icon.classList.contains('icon')) {
+//                 icon.style.display = 'none';
+//             }
+//         });
+//     });
+// });

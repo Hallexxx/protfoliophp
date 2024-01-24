@@ -35,6 +35,8 @@
             include_once('includes/ajout_blog.php');
             include_once('includes/Categories.php');
             include_once('includes/get_posts_details.php');
+            include_once('includes/update_post.php');
+            include_once('includes/delete_post.php');
             require 'pages/blog.php';
             break;
         case 'message':

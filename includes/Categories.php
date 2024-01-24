@@ -1,6 +1,5 @@
 <?php
 
-// Utilisation :
 $database = new Database(); 
 $categoriesHandler = new Categories($database->getConnection());
 $categories = $categoriesHandler->getCategories();
@@ -19,13 +18,10 @@ class Categories {
 
         $categories = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-        // Débogage
-        var_dump($categories);
-
         return $categories;
     }
 }
 
-
 echo json_encode($categories);
+
 ?>

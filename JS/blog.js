@@ -10,21 +10,31 @@ document.addEventListener("DOMContentLoaded", function () {
                 selectContainer.style.display = "block";
 
                 fetch("Categories.php")
-                    .then(response => response.json())
-                    .then(data => {
-                        var select = document.getElementById("categorySelect");
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log("Categories data:", data);
 
-                        // Supprimer les anciennes options
-                        select.innerHTML = "";
+                    var select = document.getElementById("categorySelect");
 
-                        // Ajouter une option par catégorie
-                        data.forEach(function (category) {
-                            var option = document.createElement("option");
-                            option.value = category;
-                            option.textContent = category;
-                            select.appendChild(option);
-                        });
+                    // Supprimer les anciennes options
+                    select.innerHTML = "";
+
+                    // Ajouter une option par catégorie
+                    data.forEach(function (category) {
+                        var option = document.createElement("option");
+                        option.value = category;
+                        option.textContent = category;
+                        select.appendChild(option);
                     });
+                })
+                .catch(error => console.error("Error fetching categories:", error));
+
+
             }
         });
     }
@@ -33,10 +43,14 @@ document.addEventListener("DOMContentLoaded", function () {
 function filterPosts() {
     var selectedCategory = document.getElementById("categorySelect").value;
 
+    console.log("Selected category:", selectedCategory);
+
     // Effectuer une requête AJAX pour récupérer les articles filtrés
     fetch("FilterPosts.php?category=" + encodeURIComponent(selectedCategory))
         .then(response => response.json())
         .then(data => {
+            console.log("Filtered posts data:", data);
+
             var blogPostsContainer = document.getElementById("blog");
             blogPostsContainer.innerHTML = ""; // Effacer les anciens articles
 
@@ -52,9 +66,24 @@ function filterPosts() {
             if (selectContainer) {
                 selectContainer.style.display = "none";
             }
-        });
+        })
+        .catch(error => console.error("Error filtering posts:", error));
 }
 
+
+function showPopup3() {
+    var popup3 = document.getElementById('popup3');
+    if (popup3) {
+        popup3.style.display = 'block';
+    }
+}
+
+function hidePopup3() {
+    var popup3 = document.getElementById('popup3');
+    if (popup3) {
+        popup3.style.display = 'none';
+    }
+}
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#add-art').addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -74,19 +103,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-function showPopup3() {
-    var popup3 = document.getElementById('popup3');
-    if (popup3) {
-        popup3.style.display = 'block';
-    }
-}
-
-function hidePopup3() {
-    var popup3 = document.getElementById('popup3');
-    if (popup3) {
-        popup3.style.display = 'none';
-    }
-}
 
 function showPopup4(postId, title, category, descriptions, author) {
     console.log('showPopup4 called with:', postId, title, category, descriptions, author);
@@ -94,10 +110,7 @@ function showPopup4(postId, title, category, descriptions, author) {
     // Mettez à jour les champs dans les formulaires avec les données du post sélectionné
     document.getElementById('update-post-id').value = postId;
     document.getElementById('delete-post-id').value = postId;
-    document.getElementById('title').value = title;
-    document.getElementById('category').value = category;
-    document.getElementById('descriptions').value = descriptions;
-    document.getElementById('author').value = author;
+    // ... autres champs ...
 
     var popup4 = document.getElementById('popup4');
     if (popup4) {
@@ -105,6 +118,7 @@ function showPopup4(postId, title, category, descriptions, author) {
         popup4.style.display = 'block';
     }
 }
+
 
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('update-post-form').addEventListener('submit', async function (e) {
@@ -120,7 +134,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (response.ok) {
             window.location.reload();
         } else {
-            console.error('Error updating post:', response.status);
+            const errorData = await response.json();
+            console.error('Error updating post:', errorData.message);
         }
     });
 
@@ -141,14 +156,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-
-function hidePopup4() {
-    var popup4 = document.getElementById('popup4');
-    if (popup4) {
-        popup4.style.display = 'none';
-    }
-}
-
 
 function hidePopup4() {
     var popup4 = document.getElementById('popup4');

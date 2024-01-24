@@ -64,9 +64,9 @@ session_start();
             foreach ($blog_posts as $post) {
                 echo '<div class="card">';
                 echo '<div class="card__header">';
-                if(isset($_SESSION['admin_log'])):
-                    echo '<img class="mod_blog" src="/images/info.png" alt="Experience icon" class="icon" onclick="showPopup4(' . $post['id'] . ')"/>';
-                endif;
+                if (isset($_SESSION['admin_log'])) {
+                    echo '<img class="mod_blog" src="/images/info.png" alt="Experience icon" class="icon" onclick="showPopup4(' . $post['id'] . ', \'' . $post['title'] . '\', \'' . $post['category'] . '\', \'' . $post['description'] . '\', \'' . $post['author'] . '\')"/>';
+                }                
                 echo '<img src="https://source.unsplash.com/600x400/?' . urlencode($post['category']) . '" alt="card__image" class="card__image" width="600">';
                 echo '</div>';
                 echo '<div class="card__body">';
@@ -129,9 +129,14 @@ session_start();
             <input type="text" placeholder="Auteur" id="author" name="author">
 
             <button type="submit" name="update">Modifier l'article</button>
-            <button type="submit" name="delete">Supprimer l'article</button>
-            <button type="button" onclick="hidePopup4()">Annuler</button>
         </form>
+        
+        <form id="delete-post-form">
+            <input type="hidden" id="delete-post-id" name="post-id" value="">
+
+            <button type="submit" name="delete">Supprimer l'article</button>
+        </form>
+            <button type="button" onclick="hidePopup4()">Annuler</button>
     </div>
 
     <script>
